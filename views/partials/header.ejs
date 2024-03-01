@@ -28,72 +28,50 @@
   </head>
   <body>
     <div class="container-xxl px-md-5 bg-white shadow-lg">
+      <header
+        class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom"
+      >
+        <a
+          href="/"
+          class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none"
+        >
+          <img src="/images/logo.svg" width="229" height="150" alt="logo" />
+        </a>
+
+        <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+          <li>
+            <a href="/about" class="nav-link px-2 link-secondary"
+              >Recipes</a
+            >
+          </li>
+          <li>
+            <a href="/submit-recipe" class="nav-link px-2 link-secondary"
+              >Add Recipes</a
+            >
+          </li>
+          <li>
+            <a href="/contact" class="nav-link px-2 link-secondary"
+              >Shopping</a
+            >
+          </li>
+          <li>
+            <a href="/contact" class="nav-link px-2 link-secondary"
+              >Planner</a
+            >
+          </li>
+        </ul>
+
+        <div class="col-md-3 text-end">
+          <form method="POST" action="/search">
+            <input
+              type="search"
+              name="searchTerm"
+              class="form-control"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+          </form>
+        </div>
+      </header>
       <main>
-        <nav class="py-2 bg-body-tertiary border-bottom">
-          <div class="container d-flex flex-wrap">
-            <ul class="nav me-auto">
-              <li class="nav-item">
-                <a
-                  href="/"
-                  class="nav-link link-body-emphasis px-2 active"
-                  aria-current="page"
-                >
-                  Home</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/recipes" class="nav-link link-body-emphasis px-2"
-                  >All Recipes</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="/recipes/new" class="nav-link link-body-emphasis px-2"
-                  >Add Recipes</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis px-2"
-                  >Shopping List</a
-                >
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis px-2"
-                  >Weekly Planner</a
-                >
-              </li>
-            </ul>
-            <ul class="nav">
-              <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis px-2">Login</a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link link-body-emphasis px-2">Sign up</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-        <header class="py-3 mb-4 border-bottom">
-          <div class="container d-flex flex-wrap justify-content-center">
-            <a
-              href="/"
-              class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto link-body-emphasis text-decoration-none"
-            >
-              <img src="/images/logo.svg" alt="logo" width="300" height="300" />
-              <span class="fs-4">Double header</span>
-            </a>
-            <form
-              class="col-12 col-lg-auto mb-3 mb-lg-0"
-              role="search"
-              method="POST"
-              action="/search"
-            >
-              <input
-                type="search"
-                class="form-control"
-                placeholder="Search..."
-                name="searchTerm"
-                aria-label="Search"
-              />
-            </form>
-          </div>
-        </header>
