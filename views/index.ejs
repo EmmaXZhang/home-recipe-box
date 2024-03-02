@@ -1,19 +1,12 @@
 <%- include('./partials/header') %>
-
-<div class="row flex-lg-row-reverse alighn-items-center g-5 py-4 mb-4">
+<!-- homepage greeting word -->
+<div class="row flex-lg-row-reverse align-items-center g-5 py-4 mb-4">
+  <!-- homepage greeting img -->
   <div class="col-12 col-lg-6">
-    <!-- <img
-      src="/images/homepageimg.svg"
-      alt="homepage-img"
-      width="607"
-      height="300"
-      class="d-block mx-lg-auto img-fluid"
-      loading="lazy"
-    /> -->
     <svg
       width="607"
-      height="300"
-      viewBox="0 0 180 150"
+      height="400"
+      viewBox="0 40 200 100"
       xmlns="http://www.w3.org/2000/svg"
     >
       <defs>
@@ -33,6 +26,7 @@
       />
     </svg>
   </div>
+
   <div class="col-12 col-lg-6">
     <h1 class="display-5 fw-bold mb-3">
       Selection from your Top 5 popular recipes
@@ -45,14 +39,28 @@
     </p>
   </div>
 
+  <!-- homepage buttons -->
   <div class="d-grid gap-2 d-md-flex justify-content-md-start">
     <a href="/recipes" class="btn btn-primary btn-dark btn-lg px-4 me-md-2"
-      >All recipes</a
+      >View More</a
     >
     <a href="/recipes" class="btn btn-primary btn-dark btn-lg px-4 me-md-2"
       >Most popular</a
     >
   </div>
 </div>
+
+<!-- latest recipes -->
+<section class="pb-4 pt-4">
+  <!-- bootstrap colums & gap -->
+  <div class="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
+    <a href="/recipes/#" class="col text-center">
+      <div class="homepageRecipe">
+        <img src="/images/recipe1.jpg" alt="recipe1" />
+      </div>
+      <div>Recipe1</div>
+    </a>
+  </div>
+</section>
 
 <%- include('./partials/footer') %>
