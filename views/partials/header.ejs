@@ -24,7 +24,9 @@
       rel="stylesheet"
     />
 
-    <title><%= typeof title != 'undefine'? title:'Home Recipes Box' %></title>
+    <title>
+      <%= typeof recipe.title != 'undefine'? recipe.title:'Home Recipes Box' %>
+    </title>
   </head>
   <body>
     <div class="container-xxl px-md-5 bg-white shadow-lg">
@@ -41,24 +43,18 @@
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
           <li>
-            <a href="/about" class="nav-link px-2 link-secondary"
-              >Recipes</a
-            >
+            <a href="/recipes" class="nav-link px-2 link-secondary">Recipes</a>
           </li>
           <li>
-            <a href="/submit-recipe" class="nav-link px-2 link-secondary"
+            <a href="/recipes/new" class="nav-link px-2 link-secondary"
               >Add Recipes</a
             >
           </li>
           <li>
-            <a href="/contact" class="nav-link px-2 link-secondary"
-              >Shopping</a
-            >
+            <a href="/#" class="nav-link px-2 link-secondary">Shopping</a>
           </li>
           <li>
-            <a href="/contact" class="nav-link px-2 link-secondary"
-              >Planner</a
-            >
+            <a href="/#" class="nav-link px-2 link-secondary">Planner</a>
           </li>
         </ul>
 

@@ -1,0 +1,57 @@
+<%- include("../partials/header")%>
+
+<div class="row">
+  <div class="col-12 col-md-8">
+    <div class="row">
+      <div class="col-md">
+        <img
+          src="/images/home1"
+          class="img-fluid sticky-top"
+          style="top: 20px"
+          alt=""
+        />
+      </div>
+
+      <div class="col-md">
+        <h1><%- recipe.title %></h1>
+        <!-- other info -->
+        <ul>
+          <li>Preparation Time: <%=recipe.preparationTime%> min</li>
+          <li>Cooking Time: <%=recipe.cookingTime%> min</li>
+          <li>Category: <%=recipe.category%></li>
+          <li>Serving: <%=recipe.serving%></li>
+          <li>Difficulty: <%=recipe.difficulty%></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- testing -->
+    <div class="row">
+      <!-- Instructions -->
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Cooking Instructions</h5>
+            <p class="card-text"><%= recipe.instruction %></p>
+          </div>
+        </div>
+      </div>
+      <!-- Ingredients -->
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Ingredients</h5>
+            <ul class="list-group list-group-flush">
+              <% recipe.ingredients.forEach(function(i){ %>
+              <li class="list-group-item"><%= i %></li>
+              <% }) %>
+            </ul>
+            <a href="#" class="btn btn-primary">Shopping List</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <%- include("../partials/footer")%>
+  </div>
+</div>
