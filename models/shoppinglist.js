@@ -3,6 +3,9 @@ const Schema = mongoose.Schema;
 
 //define schema for ingredient
 const shoppingListSchema = new Schema({
+  title: {
+    type: String,
+  },
   content: {
     type: Array,
   },

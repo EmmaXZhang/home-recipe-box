@@ -1,8 +1,8 @@
 <%- include("../partials/header")%> <%recipes.forEach(function(recipe){%>
 
-<div class="card-group" style="width: 18rem">
+<div class="card-group">
   <%recipes.forEach(function(recipe){%>
-  <div class="card">
+  <div class="card w-75 mb-3 col-sm-6 col-lg-4">
     <img src="/images/recipe1.jpg" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title"><%=recipe.title%>></h5>

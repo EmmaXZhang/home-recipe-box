@@ -1,6 +1,10 @@
-<%- include("../partials/header")%> <%
-shoppinglist.content.forEach((ingredient)=>{%>
-<ul>
-  <li><%=ingredient%></li>
-</ul>
-<%})%> <%- include("../partials/footer")%>
+<%- include("../partials/header") %>
+<h1><%= shoppinglist.title %> Shoppinglist</h1>
+<div>
+  <% shoppinglist.content.forEach((ingredient) => { %>
+  <ul>
+    <li><%= ingredient %></li>
+  </ul>
+  <% }); %>
+</div>
+<%- include("../partials/footer") %>
