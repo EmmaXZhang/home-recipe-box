@@ -9,7 +9,10 @@ router.get("/", shoppinglistController.index);
 //create a new shoping list
 router.post("/", shoppinglistController.create);
 
-//GeT /shoppinglists/:id
+//GET /shoppinglists/:id
 router.get("/:id", shoppinglistController.show);
+
+// PUT /shoppinglists/:id
+router.put("/:id", shoppinglistController.update);
 
 module.exports = router;

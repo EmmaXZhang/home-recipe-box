@@ -9,8 +9,8 @@
         <h5 class="card-title"><%=list.title%></h5>
 
         <ul class="list-group list-group-flush">
-          <%list.content.slice(0,3).forEach((ingredient)=>{%>
-          <li class="list-group-item"><%=ingredient%></li>
+          <%list.ingredients.slice(0,3).forEach((ingredient)=>{%>
+          <li class="list-group-item"><%=ingredient.name%></li>
           <%})%>
         </ul>
 

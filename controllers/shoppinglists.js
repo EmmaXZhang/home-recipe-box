@@ -5,9 +5,15 @@ const Recipe = require("../models/recipe");
 async function create(req, res) {
   try {
     const recipe = await Recipe.findById(req.body.recipeId);
+    //using map to create a new array
+    const shoppinglistContent = recipe.ingredients.map((ingredient) => ({
+      name: ingredient,
+      checked: false,
+    }));
+
     const shoppinglist = await Shoppinglist.create({
       title: recipe.title,
-      content: recipe.ingredients,
+      ingredients: shoppinglistContent,
       recipe: req.body.recipeId,
     });
 
@@ -36,8 +42,33 @@ async function index(req, res) {
   }
 }
 
+// function update(req, res) {
+//   Shoppinglist.findOneAndUpdate(
+//     req.params.id,
+//     req.body,
+//     {new:true}
+//   );
+//   res.redirect("/shoppinglists");
+// }
+
+async function update(req, res) {
+  try {
+    const updatedShoppingList = await Shoppinglist.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    );
+    res.redirect("/shoppinglists");
+  } catch (error) {
+    // Handle errors
+    console.error("Error updating shopping list:", error);
+    res.status(500).send("Failed to update shopping list");
+  }
+}
+
 module.exports = {
   create,
   show,
   index,
+  update,
 };

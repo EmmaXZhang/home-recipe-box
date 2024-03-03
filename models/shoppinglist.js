@@ -6,9 +6,16 @@ const shoppingListSchema = new Schema({
   title: {
     type: String,
   },
-  content: {
-    type: Array,
-  },
+
+  ingredients: [
+    {
+      name: String,
+      checked: {
+        type: Boolean,
+        default: false,
+      },
+    },
+  ],
   recipe: {
     type: Schema.Types.ObjectId,
     ref: "Recipe",

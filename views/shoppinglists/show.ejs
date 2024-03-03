@@ -1,21 +1,19 @@
 <%- include("../partials/header") %>
 <h1><%= shoppinglist.title %> Shoppinglist</h1>
 
-<% shoppinglist.content.forEach((ingredient) => { %>
+<form action="/shoppinglists/<%=shoppinglist._id%>?_method=PUT" method="POST">
+  <% shoppinglist.ingredients.forEach((ingredient) => { %>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <input <%= ingredient.checked ? 'checked' : '' %> class="form-check-input
+      me-1" type="checkbox" name="<%= ingredient.name %>" value="true"
+      aria-label="ingredient" /> <%= ingredient.name %>
+    </li>
+  </ul>
+  <% }); %>
+  <button type="submit" class="btn btn-outline-danger">Save</button>
+</form>
 
-<ul class="list-group">
-  <li class="list-group-item">
-    <input
-      class="form-check-input me-1"
-      type="checkbox"
-      value="ingredient"
-      aria-label="..."
-    />
-    <%= ingredient %>
-  </li>
-</ul>
-<% }); %>
-
-<button type="button" class="btn btn-outline-danger">Delete</button>
+<button type="submit" class="btn btn-outline-danger">Delete</button>
 
 <%- include("../partials/footer") %>
