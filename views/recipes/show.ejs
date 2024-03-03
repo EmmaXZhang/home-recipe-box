@@ -1,7 +1,7 @@
 <%- include("../partials/header")%>
 
 <div class="row">
-  <div class="col-12 col-md-8">
+  <div class="col-12 col-md-8" >
     <div class="row">
       <div class="col-md">
         <img
@@ -46,12 +46,21 @@
               <li class="list-group-item"><%= i %></li>
               <% }) %>
             </ul>
-            <a href="#" class="btn btn-primary">Shopping List</a>
+            <!-- retrieve the recipe ingredients-->
+            <form method="POST" action="/shoppinglists">
+            <!-- get recipe id, by passing "name" property + value -->
+            <input
+              type="hidden"
+              id="recipeId"
+              name="recipeId"
+              value="<%=recipe._id%>"
+            />
+            <button type="submit" class="btn btn-primary">Create Shoppinglist</a>
+            </form>    
           </div>
         </div>
       </div>
     </div>
-
-    <%- include("../partials/footer")%>
   </div>
 </div>
+<%- include("../partials/footer")%>
