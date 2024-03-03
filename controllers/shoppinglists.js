@@ -27,7 +27,17 @@ async function show(req, res) {
   }
 }
 
+async function index(req, res) {
+  try {
+    const shoppinglists = await Shoppinglist.find({});
+    res.render("shoppinglists/index", { shoppinglists });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   create,
   show,
+  index,
 };

@@ -1,10 +1,17 @@
 <%- include("../partials/header") %>
 <h1><%= shoppinglist.title %> Shoppinglist</h1>
-<div>
-  <% shoppinglist.content.forEach((ingredient) => { %>
-  <ul>
-    <li><%= ingredient %></li>
-  </ul>
-  <% }); %>
-</div>
-<%- include("../partials/footer") %>
+
+<% shoppinglist.content.forEach((ingredient) => { %>
+
+<ul class="list-group">
+  <li class="list-group-item">
+    <input
+      class="form-check-input me-1"
+      type="checkbox"
+      value="ingredient"
+      aria-label="..."
+    />
+    <%= ingredient %>
+  </li>
+</ul>
+<% }); %> <%- include("../partials/footer") %>

@@ -1,0 +1,26 @@
+<%- include("../partials/header")%>
+<h1>Current Shoppinglists</h1>
+<div class="row row-cols-1 row-cols-md-3 g-2">
+  <%shoppinglists.forEach(function(list){%>
+  <div class="col">
+    <div class="card w-100">
+      <img src="/images/recipe1.jpg" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title"><%=list.title%></h5>
+
+        <ul class="list-group list-group-flush">
+          <%list.content.slice(0,3).forEach((ingredient)=>{%>
+          <li class="list-group-item"><%=ingredient%></li>
+          <%})%>
+        </ul>
+
+        <a href="/shoppinglists/<%=list._id%>" class="btn btn-primary"
+          >Details</a
+        >
+      </div>
+    </div>
+  </div>
+  <%})%>
+</div>
+
+<%- include("../partials/footer")%>

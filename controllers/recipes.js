@@ -3,7 +3,9 @@ const Recipe = require("../models/recipe");
 
 //Homepage
 async function homePage(req, res) {
-  res.render("index", { title: "Home Recipes Box" });
+  //find first 3 recipes
+  const recipes = await Recipe.find({}).limit(3);
+  res.render("index", { title: "Home Recipes Box", recipes });
 }
 
 //All recipes
