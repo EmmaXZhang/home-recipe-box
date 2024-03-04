@@ -70,6 +70,20 @@
         <a href="/recipes/<%=recipe._id%>/edit" class="btn btn-outline-warning"
           >Edit</a
         >
+        <form
+          action="/recipes/<%= recipe._id %>?_method=DELETE"
+          method="POST"
+          style="display: inline"
+        >
+          <button type="submit" class="btn btn-outline-secondary">
+            Delete
+          </button>
+        </form>
+      </div>
+      <div class="card-footer text-body-secondary text-end">
+        <small class="text-body-secondary"
+          ><%=recipe.updatedAt.toLocaleDateString('en-GB')%></small
+        >
       </div>
     </div>
   </div>

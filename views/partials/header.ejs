@@ -42,6 +42,7 @@
 
         <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
           <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+          <%if(user){%>
           <li>
             <a href="/recipes" class="nav-link px-2 link-secondary">Recipes</a>
           </li>
@@ -58,6 +59,16 @@
           <li>
             <a href="/#" class="nav-link px-2 link-secondary">Planner</a>
           </li>
+          <li>
+            <a href="/logout" class="nav-link px-2 link-secondary">Logout</a>
+          </li>
+          <% } else { %>
+          <li>
+            <a href="/auth/google" class="nav-link px-2 link-secondary"
+              >Login</a
+            >
+          </li>
+          <% } %>
         </ul>
 
         <div class="col-md-3 text-end">

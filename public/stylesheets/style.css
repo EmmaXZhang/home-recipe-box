@@ -41,3 +41,7 @@ a {
     flex-direction: row-reverse;
   }
 }
+
+.recipeShowTop {
+  margin-bottom: 10%;
+}
