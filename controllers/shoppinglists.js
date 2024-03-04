@@ -65,20 +65,21 @@ async function update(req, res) {
 }
 
 async function deleteShoppinglist(req, res) {
-  // req.params.id -> review's id
-  //req.params.id -> review's id
-  // pass req.user id to reviews.user, making sure current user delete his own review
-  const shoppinglist = await Shoppinglist.findOne({
-    "shoppinglists._id": req.params.id,
-  });
-  // Rogue user!
-  if (!shoppinglist) return res.redirect("/shoppinglists");
-  // Remove the review using the remove method available on Mongoose arrays
-  movie.reviews.remove(req.params.id);
-  // Save the updated movie doc
-  await movie.save();
-  // Redirect back to the movie's show view
-  res.redirect(`/movies/${movie._id}`);
+  try {
+    const deletedShoppinglist = await Shoppinglist.findByIdAndDelete(
+      req.params.id
+    );
+    res.redirect(`/shoppinglists`);
+
+    if (!deletedShoppinglist) {
+      return res.status(404).send("Shopping list not found");
+    }
+    // Respond with a success message
+    res.status(200).send("Shopping list deleted successfully");
+  } catch (error) {
+    // Handle errors
+    console.log("Error deleting shopping list:", error);
+  }
 }
 
 module.exports = {
@@ -86,4 +87,5 @@ module.exports = {
   show,
   index,
   update,
+  delete: deleteShoppinglist,
 };
