@@ -1,5 +1,5 @@
 <%- include("../partials/header") %>
-<h1><%= shoppinglist.title %> Shoppinglist</h1>
+<h1 class="text-center"><%= shoppinglist.title %> Shoppinglist</h1>
 
 <form action="/shoppinglists/<%=shoppinglist._id%>?_method=PUT" method="POST">
   <% shoppinglist.ingredients.forEach((ingredient) => { %>

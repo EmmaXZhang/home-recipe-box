@@ -12,9 +12,6 @@ router.post("/", shoppinglistController.create);
 //GET /shoppinglists/:id
 router.get("/:id", shoppinglistController.show);
 
-// PUT /shoppinglists/:id ?????????????????????????
-router.put("/:id", shoppinglistController.update);
-
 // DELETE /shoppinglists/:id
 router.delete("/:id", shoppinglistController.delete);
 
