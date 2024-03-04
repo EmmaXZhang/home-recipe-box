@@ -6,13 +6,12 @@
     <div class="card w-100">
       <img src="/images/recipe1.jpg" class="card-img-top" alt="..." />
       <div class="card-body">
-        <h5 class="card-title"><%=recipe.title%>></h5>
-        <p class="card-text">
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-        <a href="/recipes/<%=recipe._id%>" class="btn btn-primary"
-          >View Details</a
+        <h5 class="card-title"><%=recipe.title%></h5>
+        <p class="card-text"><%=recipe.description%></p>
+
+        <a href="/recipes/<%=recipe._id%>" class="btn btn-outline-info">View</a>
+        <a href="/recipes/<%=recipe._id%>/edit" class="btn btn-outline-warning"
+          >Edit</a
         >
       </div>
     </div>

@@ -1,14 +1,14 @@
 <%- include("../partials/header")%>
 
 <div class="row">
-  <div class="col-12 col-md-8" >
+  <div class="col-12 col-md-8">
     <div class="row">
       <div class="col-md">
         <img
-          src="/images/home1"
+          src="<%=recipe.image%>"
           class="img-fluid sticky-top"
           style="top: 20px"
-          alt=""
+          alt="foodimage"
         />
       </div>
 
@@ -48,15 +48,17 @@
             </ul>
             <!-- retrieve the recipe ingredients-->
             <form method="POST" action="/shoppinglists">
-            <!-- get recipe id, by passing "name" property + value -->
-            <input
-              type="hidden"
-              id="recipeId"
-              name="recipeId"
-              value="<%=recipe._id%>"
-            />
-            <button type="submit" class="btn btn-primary">Create Shoppinglist</a>
-            </form>    
+              <!-- get recipe id, by passing "name" property + value -->
+              <input
+                type="hidden"
+                id="recipeId"
+                name="recipeId"
+                value="<%=recipe._id%>"
+              />
+              <button type="submit" class="btn btn-secondary btn-sm">
+                Create Shoplist
+              </button>
+            </form>
           </div>
         </div>
       </div>

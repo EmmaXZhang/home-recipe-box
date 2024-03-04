@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const recipesController = require("../controllers/recipes");
+const upload = require("../utilities/multer");
 
 // GET /recipes/
 router.get("/", recipesController.index);
@@ -9,9 +10,15 @@ router.get("/", recipesController.index);
 router.get("/new", recipesController.new);
 
 // POST /recipes/
-router.post("/", recipesController.create);
+router.post("/", upload.single("image"), recipesController.create);
 
 // GET /recipes/:id
 router.get("/:id", recipesController.show);
+
+// GET /recipes/:id
+router.get("/:id/edit", recipesController.edit);
+
+// PUT /recipes/:id
+router.put("/:id", recipesController.update);
 
 module.exports = router;

@@ -1,7 +1,7 @@
 <%- include("../partials/header")%>
 
 <div class="px-4 py-5 my-5 text-center">
-  <h1 class="display-5 fw-bold">Submit Recipe</h1>
+  <h1 class="display-5 fw-bold">Edit Recipe</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead">
       Create your amazing recipies and share with family and friends.
@@ -11,11 +11,12 @@
 
 <div class="row justify-content-center">
   <div class="col-8">
-    <form action="/recipes" enctype="multipart/form-data" method="POST">
+    <!-- <form action="/recipes" enctype="multipart/form-data" method="POST"> -->
+    <form action="/recipes/<%=recipe._id%>?_method=PUT" method="POST">
       <div class="row g-3">
         <div class="col-12">
           <label for="title" class="form-label">Recipe Name</label>
-          <input type="text" name="title" class="form-control" required />
+          <input type="text" name="title" class="form-control" value="<%=recipe.title%>" />
         </div>
 
         <div class="col-12">
@@ -26,7 +27,7 @@
             cols="30"
             rows="4"
             required
-          ></textarea>
+          ><%=recipe.description%></textarea>
         </div>
 
         <div class="col-12">
@@ -36,6 +37,7 @@
             class="form-control"
             name="image"
             accept="image/*"
+            value="<%=recipe.image%>"
           />
         </div>
 
@@ -47,6 +49,7 @@
             type="number"
             name="preparationTime"
             class="form-control"
+            value="<%=recipe.preparationTime%>"
             required
           />
         </div>
@@ -57,6 +60,7 @@
             type="number"
             name="cookingTime"
             class="form-control"
+            value="<%=recipe.cookingTime%>"
             required
           />
         </div>
@@ -64,37 +68,37 @@
         <div class="col-12">
           <label for="category">Select Category</label>
           <select class="form-select form-control" name="category">
-            <option selected>Select Category</option>
-            <option value="Breakfast">Breakfast</option>
-            <option value="Lunch">Lunch</option>
-            <option value="Dinner">Dinner</option>
+            <option value="Breakfast" <%= recipe.category === 'Breakfast' ? 'selected' : '' %>>Breakfast</option>
+            <option value="Lunch" <%= recipe.category === 'Lunch' ? 'selected' : '' %>>Lunch</option>
+            <option value="Dinner" <%= recipe.category === 'Dinner' ? 'selected' : '' %>>Dinner</option>
           </select>
         </div>
 
         <div class="col-12">
           <label for="servering" class="form-label">Serving Number</label>
-          <input type="number" name="serving" class="form-control" required />
+          <input type="number" name="serving" class="form-control" value="<%=recipe.serving%>" required />
         </div>
 
         <div class="col-12">
           <label for="category">Difficulty</label>
           <select class="form-select form-control" name="difficulty">
-            <option selected>Select Difficulty</option>
-            <option value="Easy">Easy</option>
-            <option value="Medium">Medium</option>
-            <option value="Difficulty">Difficulty</option>
+            <option value="Easy" <%= recipe.difficulty === 'Easy' ? 'selected' : '' %>>Easy</option>
+            <option value="Medium" <%= recipe.difficulty === 'Medium' ? 'selected' : '' %>>Medium</option>
+            <option value="Difficulty" <%= recipe.difficulty === 'Difficulty' ? 'selected' : '' %>>Difficulty</option>
           </select>
         </div>
 
         <div class="col-12">
-          <label for="name" class="form-label">Ingredients</label><br />
-          <small>Example: 1 x Egg</small>
-          <div class="ingredientList">
-            <div class="ingredientDiv">
-              <input type="text" name="ingredients" class="form-control" />
+            <label for="name" class="form-label">Ingredients</label><br />
+            <small>Example: 1 x Egg</small>
+            <div class="ingredientList">
+              <% recipe.ingredients.forEach(function(ingredient) { %>
+                <div class="ingredientDiv">
+                  <input type="text" name="ingredients" class="form-control" value="<%= ingredient %>" />
+                </div>
+              <% }); %>
             </div>
           </div>
-        </div>
 
         <div class="col-12">
           <button
@@ -105,22 +109,22 @@
             + Lines
           </button>
         </div>
+
         <div class="col-12">
           <label for="name" class="form-label">Instructions</label><br />
           <small>Example: Cook gnocchi</small>
           <div>
             <div class="mb-1">
-              <input type="text" name="instruction" class="form-control" />
+              <input type="text" name="instruction" class="form-control" value="<%=recipe.instruction%>"/>
             </div>
           </div>
         </div>
 
         <div class="col-12">
-          <button type="submit" class="btn btn-primary">Add Recipe</button>
+          <button type="submit" class="btn btn-primary">Update Recipe</button>
         </div>
       </div>
     </form>
   </div>
 </div>
-<p><%=errMsg%></p>
 <%- include("../partials/footer")%>

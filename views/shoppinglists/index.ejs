@@ -4,6 +4,22 @@
   <%shoppinglists.forEach(function(list){%>
   <div class="col">
     <div class="card w-100">
+      <!-- delete card button-->
+      <div class="card-header bg-secondary">
+        <form
+          action="/shoppinglists/<%= list._id %>"
+          method="POST"
+          style="display: inline"
+        >
+          <input type="hidden" name="_method" value="DELETE" />
+          <button
+            type="submit"
+            class="btn-close btn-close-white"
+            aria-label="Close"
+          ></button>
+        </form>
+      </div>
+      <!-- card detail -->
       <img src="/images/recipe1.jpg" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title"><%=list.title%></h5>

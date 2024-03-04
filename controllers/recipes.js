@@ -1,5 +1,7 @@
 //models
 const Recipe = require("../models/recipe");
+const Shoppinglist = require("../models/shoppinglist");
+const cloudinary = require("../utilities/cloudiary");
 
 //Homepage
 async function homePage(req, res) {
@@ -22,7 +24,16 @@ function newRecipe(req, res) {
 // create recipe
 async function create(req, res) {
   try {
-    const recipe = await Recipe.create(req.body);
+    const result = await cloudinary.uploader.upload(req.file.path);
+
+    const recipe = new Recipe({
+      ...req.body,
+      image: result.secure_url,
+      cloudinary_id: result.public_id,
+    });
+    await recipe.save();
+
+    // const recipe = await Recipe.create(req.body);
 
     res.redirect(`/recipes/${recipe._id}`);
   } catch (err) {
@@ -35,10 +46,45 @@ async function create(req, res) {
 async function show(req, res) {
   try {
     const recipe = await Recipe.findById(req.params.id);
-    console.log("recipe", recipe);
-    res.render("recipes/show", { recipe: recipe });
+    //find related shoppinglist
+    const shoppinglist = await Shoppinglist.findOne({ recipe: req.params.id });
+
+    res.render("recipes/show", { recipe, shoppinglist });
   } catch (e) {
     console.log(e);
+  }
+}
+
+// edit recipe detail
+async function edit(req, res) {
+  try {
+    const recipe = await Recipe.findOne({ _id: req.params.id }).exec();
+    if (!recipe) {
+      return res.redirect("/recipes");
+    }
+    res.render("recipes/edit", { recipe });
+  } catch (err) {
+    console.error("Error retrieving recipe:", err);
+    res.redirect("/recipes");
+  }
+}
+
+// update recipe detail
+async function update(req, res) {
+  try {
+    const updatedRecipe = await Recipe.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    );
+
+    if (!updatedRecipe) {
+      return res.redirect("/recipes");
+    }
+    res.redirect(`/recipes/${updatedRecipe._id}`);
+  } catch (err) {
+    console.error("Error updating recipe:", err);
+    res.redirect("/recipes");
   }
 }
 
@@ -48,4 +94,6 @@ module.exports = {
   new: newRecipe,
   create,
   show,
+  edit,
+  update,
 };

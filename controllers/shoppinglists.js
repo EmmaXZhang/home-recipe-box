@@ -42,20 +42,18 @@ async function index(req, res) {
   }
 }
 
-// function update(req, res) {
-//   Shoppinglist.findOneAndUpdate(
-//     req.params.id,
-//     req.body,
-//     {new:true}
-//   );
-//   res.redirect("/shoppinglists");
-// }
-
+//update shoppinglist
 async function update(req, res) {
   try {
+    const recipe = await Recipe.findById(req.body.recipeId);
+    const shoppinglistContent = recipe.ingredients.map((ingredient) => ({
+      name: ingredient,
+      checked: false,
+    }));
+
     const updatedShoppingList = await Shoppinglist.findOneAndUpdate(
-      { _id: req.params.id },
-      req.body,
+      { _id: req.body.shoppinglistId },
+      { $set: { ingredients: shoppinglistContent } },
       { new: true }
     );
     res.redirect("/shoppinglists");
