@@ -88,6 +88,19 @@ async function update(req, res) {
   }
 }
 
+async function deleteRecipe(req, res) {
+  try {
+    await Recipe.findByIdAndDelete(req.params.id);
+    res.redirect(`/recipes`);
+
+    // Respond with a success message
+    res.status(200).send("Shopping list deleted successfully");
+  } catch (error) {
+    // Handle errors
+    console.log(error);
+  }
+}
+
 module.exports = {
   homePage,
   index,
@@ -96,4 +109,5 @@ module.exports = {
   show,
   edit,
   update,
+  delete: deleteRecipe,
 };
