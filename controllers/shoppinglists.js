@@ -92,7 +92,6 @@ async function update(req, res) {
     });
     const newShoppingList = await shoppinglist.save();
     res.status(200).json(newShoppingList);
-    // res.redirect(`/shoppinglists`);
   } catch (err) {
     console.log(err);
   }

@@ -45,3 +45,12 @@ a {
 .recipeShowTop {
   margin-bottom: 10%;
 }
+
+.recipeShowReview {
+  margin-top: 10%;
+}
+
+.saveBtn {
+  margin-top: 5%;
+  text-align: right;
+}

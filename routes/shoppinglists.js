@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const shoppinglistController = require("../controllers/shoppinglists");
-const shoppinglist = require("../models/shoppinglist");
 
 // GET /shoppinglists
 router.get("/", shoppinglistController.index);
