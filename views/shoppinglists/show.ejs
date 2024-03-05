@@ -1,12 +1,16 @@
 <%- include("../partials/header") %>
 <h1 class="text-center"><%= shoppinglist.title %> Shoppinglist</h1>
 
-<form action="/shoppinglists/<%=shoppinglist._id%>?_method=PUT" method="POST">
+<form
+  action="/shoppinglists/<%=shoppinglist._id%>?_method=PUT"
+  method="POST"
+  id="checkboxForm"
+>
   <% shoppinglist.ingredients.forEach((ingredient) => { %>
   <ul class="list-group">
     <li class="list-group-item">
       <input <%= ingredient.checked ? 'checked' : '' %> class="form-check-input
-      me-1" type="checkbox" name="<%= ingredient.name %>" value="true"
+      me-1" type="checkbox" name="ingredient" value="<%= ingredient.name %>"
       aria-label="ingredient" /> <%= ingredient.name %>
     </li>
   </ul>

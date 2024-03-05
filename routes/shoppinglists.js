@@ -15,4 +15,7 @@ router.get("/:id", shoppinglistController.show);
 // DELETE /shoppinglists/:id
 router.delete("/:id", shoppinglistController.delete);
 
+// PUT /shoppinglists/:id
+router.put("/:id", shoppinglistController.update);
+
 module.exports = router;

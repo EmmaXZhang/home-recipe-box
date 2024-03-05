@@ -4,14 +4,6 @@ let ingredientList = document.querySelector(".ingredientList");
 
 if (addBtn) {
   addBtn.addEventListener("click", function () {
-    // //creates a copy of the ingredientDiv element(include its attribute and its descendants)
-    // //original one remain on page
-    // let newIngredient = ingredientDiv.cloneNode(true);
-    // // find all <input> elements , get first one
-    // let input = newIngredient.getElementsByTagName("input")[0];
-    // input.value = "";
-    // ingredientList.appendChild(newIngredient);
-
     let ingredientDiv = document.createElement("div");
     ingredientDiv.classList.add("ingredientsDiv");
     let input = document.createElement("input");
@@ -24,3 +16,47 @@ if (addBtn) {
 } else {
   console.error("add button is not ready");
 }
+
+// sending HTTP PUT request to server
+document
+  .getElementById("checkboxForm")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    // Get all checked checkboxes and extract their values into an array
+    const checkedCheckboxes = Array.from(
+      document.querySelectorAll('input[name="ingredient"]:checked')
+    ).map((checkbox) => checkbox.value);
+
+    //get path component of the current URL
+    var path = window.location.pathname;
+    //extract the ID from the path
+    //\/shoppinglists\/ -> string "/shoppinglists/" ，(\w+) ->matches one or more word characters
+    var match = path.match(/^\/shoppinglists\/(\w+)/);
+
+    if (match) {
+      var shoppinglistId = match[1]; // Extract the ID from the match
+
+      // make HTTP PUT (update) requests to the server.
+      fetch(`/shoppinglists/${shoppinglistId}`, {
+        method: "PUT",
+        // request type is JSON
+        headers: {
+          "Content-Type": "application/json",
+        },
+        //transfer req body as JSON string format
+        body: JSON.stringify({ checkedIngredients: checkedCheckboxes }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+          throw new Error("Network response was not ok.");
+        })
+        .then((data) => {
+          console.log("Response from backend:", data);
+        })
+        .catch((error) => {
+          console.error("There was a problem with the fetch operation:", error);
+        });
+    }
+  });

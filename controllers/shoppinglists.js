@@ -5,11 +5,9 @@ const Recipe = require("../models/recipe");
 async function create(req, res) {
   try {
     const recipeId = req.body.recipeId;
-
     const existingShoppinglist = await Shoppinglist.findOne({
       recipe: recipeId,
     });
-
     if (existingShoppinglist) {
       // update existingShopping list with new one
       const recipe = await Recipe.findById(recipeId);
@@ -37,12 +35,10 @@ async function create(req, res) {
         ingredients: shoppinglistContent,
         recipe: recipeId,
       });
-
       res.redirect(`/shoppinglists/${shoppinglist._id}`);
     }
   } catch (err) {
     console.log(err);
-    res.status(500).send("Failed to create or update shopping list");
   }
 }
 
@@ -82,9 +78,29 @@ async function deleteShoppinglist(req, res) {
   }
 }
 
+async function update(req, res) {
+  try {
+    const shoppinglist = await Shoppinglist.findById(req.params.id);
+    const checkedIngredients = req.body.checkedIngredients;
+    console.log("req.body", typeof checkedIngredients);
+    shoppinglist.ingredients.forEach((ingredient) => {
+      if (checkedIngredients.indexOf(ingredient.name) !== -1) {
+        ingredient.checked = true;
+      } else {
+        ingredient.checked = false;
+      }
+    });
+    await shoppinglist.save();
+    res.redirect("/shoppinglists");
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   create,
   show,
   index,
   delete: deleteShoppinglist,
+  update,
 };
