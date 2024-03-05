@@ -82,7 +82,7 @@ async function update(req, res) {
   try {
     const shoppinglist = await Shoppinglist.findById(req.params.id);
     const checkedIngredients = req.body.checkedIngredients;
-    console.log("req.body", typeof checkedIngredients);
+
     shoppinglist.ingredients.forEach((ingredient) => {
       if (checkedIngredients.indexOf(ingredient.name) !== -1) {
         ingredient.checked = true;
@@ -90,8 +90,9 @@ async function update(req, res) {
         ingredient.checked = false;
       }
     });
-    await shoppinglist.save();
-    res.redirect("/shoppinglists");
+    const newShoppingList = await shoppinglist.save();
+    res.status(200).json(newShoppingList);
+    // res.redirect(`/shoppinglists`);
   } catch (err) {
     console.log(err);
   }

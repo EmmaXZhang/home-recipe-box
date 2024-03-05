@@ -54,6 +54,8 @@ document
         })
         .then((data) => {
           console.log("Response from backend:", data);
+          // Redirect to the shoppinglists page after successful update
+          window.location.href = "/shoppinglists";
         })
         .catch((error) => {
           console.error("There was a problem with the fetch operation:", error);
