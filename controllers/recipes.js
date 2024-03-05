@@ -6,7 +6,7 @@ const cloudinary = require("../utilities/cloudiary");
 //Homepage
 async function homePage(req, res) {
   //find first 3 recipes
-  const recipes = await Recipe.find({}).limit(3);
+  const recipes = await Recipe.find({}).sort({ rating: -1 }).limit(3);
   res.render("index", { title: "Home Recipes Box", recipes });
 }
 
