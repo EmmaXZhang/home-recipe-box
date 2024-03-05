@@ -24,4 +24,7 @@ router.put("/:id", recipesController.update);
 // Delet /recipes/:id
 router.delete("/:id", recipesController.delete);
 
+// POST /recipes/search
+router.post("/search", recipesController.search);
+
 module.exports = router;

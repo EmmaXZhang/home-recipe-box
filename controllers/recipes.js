@@ -89,6 +89,7 @@ async function update(req, res) {
   }
 }
 
+// delete a recipe
 async function deleteRecipe(req, res) {
   try {
     await Recipe.findByIdAndDelete(req.params.id);
@@ -102,6 +103,19 @@ async function deleteRecipe(req, res) {
   }
 }
 
+// search a recipe
+async function search(req, res) {
+  try {
+    let searchTerm = req.body.searchTerm;
+    let recipes = await Recipe.find({
+      $text: { $search: searchTerm, $diacriticSensitive: true },
+    });
+    res.render("recipes/search", { recipes });
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 module.exports = {
   homePage,
   index,
@@ -111,4 +125,5 @@ module.exports = {
   edit,
   update,
   delete: deleteRecipe,
+  search,
 };

@@ -10,6 +10,7 @@ require("dotenv").config();
 //require database
 require("./config/database");
 require("./config/passport");
+const bodyParser = require("body-parser");
 
 var indexRouter = require("./routes/index");
 var recipesRouter = require("./routes/recipes");
@@ -25,6 +26,8 @@ app.set("view engine", "ejs");
 app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// Parse incoming request bodies
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 // show images
 app.use(express.static(path.join(__dirname, "public")));
