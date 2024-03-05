@@ -54,3 +54,14 @@ a {
   margin-top: 5%;
   text-align: right;
 }
+
+.review-user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-user img {
+  border-radius: 50%;
+  height: 30px;
+}

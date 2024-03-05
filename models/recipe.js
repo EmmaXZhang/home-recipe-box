@@ -13,13 +13,13 @@ const reviewSchema = new Schema(
       max: 5,
       default: 5,
     },
-    // user: {
-    //   type: Schema.Types.ObjectId,
-    //   ref: "User",
-    //   required: true,
-    // },
-    // userName: String,
-    // userAvatar: String,
+    user: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      // required: true,
+    },
+    userName: String,
+    userAvatar: String,
   },
   {
     timestamps: true,
@@ -72,6 +72,15 @@ const recipeSchema = new Schema(
   },
   {
     timestamps: true,
+    methods: {
+      averageRating() {
+        let total = 0;
+        this.reviews.forEach((review) => {
+          total += review.rating;
+        });
+        return total / this.reviews.length.toFixed(1);
+      },
+    },
   }
 );
 
