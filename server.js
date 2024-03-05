@@ -48,8 +48,8 @@ app.use(function (req, res, next) {
 
 app.use("/", indexRouter);
 app.use("/recipes", recipesRouter);
+app.use("/", reviewsRouter);
 app.use("/shoppinglists", shoppinglistsRouter);
-app.use("/recipes/:id/reviews", reviewsRouter);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

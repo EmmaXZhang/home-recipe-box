@@ -63,7 +63,7 @@
         </div>
       </div>
 
-      <div class="recipeShowReview">
+      <div class="recipeShowReview row">
         <div class="card col-sm-6">
           <h5 class="card-header">Reviews</h5>
           <div class="card-body">
@@ -74,12 +74,16 @@
                 >
                 <textarea
                   class="form-control"
-                  id="exampleFormControlTextarea1"
                   rows="3"
+                  name="content"
                 ></textarea>
               </div>
               <div class="mb-3">
-                <select class="form-select" aria-label="Default select example">
+                <select
+                  class="form-select"
+                  aria-label="Default select example"
+                  name="rating"
+                >
                   <option selected>Select Rating</option>
                   <option value="1">1</option>
                   <option value="2">2</option>
@@ -94,8 +98,27 @@
             </form>
           </div>
         </div>
+
+        <ol class="list-group list-group-numbered col-sm-6 ml-3">
+          <% if (recipe.reviews.length>0) { %>
+          <%recipe.reviews.forEach(function(r) { %>
+          <li
+            class="list-group-item d-flex justify-content-between align-items-start"
+          >
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">User name</div>
+              <%=r.content%>
+            </div>
+            <span class="badge text-bg-primary rounded-pill"
+              ><%=r.rating%> stars</span
+            >
+          </li>
+          <% }); %> <% } else { %>
+          <h5>No Reviews Yet</h5>
+          <% } %>
+        </ol>
       </div>
     </div>
   </div>
+  <%- include("../partials/footer")%>
 </div>
-<%- include("../partials/footer")%>

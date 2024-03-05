@@ -45,6 +45,7 @@ async function create(req, res) {
 // show recipe detail
 async function show(req, res) {
   try {
+    console.log("show recipe detail");
     const recipe = await Recipe.findById(req.params.id);
     //find related shoppinglist
     const shoppinglist = await Shoppinglist.findOne({ recipe: req.params.id });

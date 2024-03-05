@@ -4,6 +4,6 @@ const reviewsController = require("../controllers/reviews");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
 
 // POST /recipes/:id/reviews
-router.post("/", reviewsController.create);
+router.post("/recipes/:id/reviews", reviewsController.create);
 
 module.exports = router;

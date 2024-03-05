@@ -13,13 +13,13 @@ const reviewSchema = new Schema(
       max: 5,
       default: 5,
     },
-    user: {
-      type: Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-    userName: String,
-    userAvatar: String,
+    // user: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: "User",
+    //   required: true,
+    // },
+    // userName: String,
+    // userAvatar: String,
   },
   {
     timestamps: true,
