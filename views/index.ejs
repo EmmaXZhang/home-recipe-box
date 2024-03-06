@@ -81,7 +81,22 @@
           </button>
         </form>
       </div>
-      <div class="card-footer text-body-secondary text-end">
+      <div
+        class="card-footer text-body-secondary text-end d-flex justify-content-between"
+      >
+        <div>
+          <% if(!recipe.averageRating()||recipe.averageRating()==0){%>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+          <% }else{%> <% for (let i = 0; i < recipe.averageRating(); i++) {%>
+          <span class="fa fa-star stared"></span>
+          <% }%> <%for (let j = 0; j < (5 - recipe.averageRating()); j++) {%>
+          <span class="fa fa-star"></span>
+          <% }%> <% }%>
+        </div>
         <small class="text-body-secondary"
           ><%=recipe.updatedAt.toLocaleDateString('en-GB')%></small
         >

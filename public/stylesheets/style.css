@@ -78,3 +78,7 @@ a {
 .inspiredMeCard {
   margin-left: 5px;
 }
+
+.stared {
+  color: orange;
+}
