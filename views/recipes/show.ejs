@@ -128,17 +128,37 @@
                   ><%=r.updatedAt.toLocaleDateString('en-GB')%></small
                 >
               </div>
-              <span class="badge text-bg-warning rounded-pill"
-                ><%=r.rating%> stars</span
-              >
+              <div>
+                <% for (let i = 0; i < r.rating; i++) {%>
+                <span class="fa fa-star stared"></span>
+                <% }%> <%for (let j = 0; j < (5 - r.rating); j++) {%>
+                <span class="fa fa-star"></span>
+                <% }%>
+              </div>
             </li>
             <p></p>
             <% }); %> <% } else { %>
             <h5>No Reviews Yet</h5>
             <% } %>
-            <p class="badge text-bg-warning">
-              Average <%= recipe.averageRating() %>
-            </p>
+
+            <div class="d-flex justify-content-between">
+              <p class="fw-bolder">Average:</p>
+              <div>
+                <% if(!recipe.averageRating()||recipe.averageRating()==0){%>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <% }else{%> <% for (let i = 0; i < recipe.averageRating(); i++)
+                {%>
+                <span class="fa fa-star stared"></span>
+                <% }%> <%for (let j = 0; j < (5 - recipe.averageRating()); j++)
+                {%>
+                <span class="fa fa-star"></span>
+                <% }%> <% }%>
+              </div>
+            </div>
           </ol>
         </div>
       </div>

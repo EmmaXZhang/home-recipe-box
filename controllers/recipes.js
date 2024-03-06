@@ -108,7 +108,7 @@ async function search(req, res) {
   try {
     let searchTerm = req.body.searchTerm;
     let recipes = await Recipe.find({
-      $text: { $search: searchTerm, $diacriticSensitive: true },
+      $text: { $search: searchTerm, $diacriticSensitive: false },
     });
     res.render("recipes/search", { recipes });
   } catch (err) {
