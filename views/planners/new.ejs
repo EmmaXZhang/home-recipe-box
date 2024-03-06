@@ -1,0 +1,64 @@
+<%- include("../partials/header")%>
+
+<div class="px-4 py-5 my-5 text-center">
+  <h1 class="display-5 fw-bold">Daily Recipe Plan</h1>
+  <div class="col-lg-6 mx-auto">
+    <p class="lead">
+      Create your amazing recipie planners and share with family and friends.
+    </p>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form action="/planners" enctype="multipart/form-data" method="POST">
+      <div class="row g-3">
+        <div class="col-12">
+          <label for="title" class="form-label">Date</label>
+          <input
+            type="datetime-local"
+            name="date"
+            class="form-control"
+            required
+          />
+        </div>
+
+        <div class="col-12">
+          <label for="category">Breakfast</label>
+          <select class="form-select form-control" name="breakfastChoice">
+            <option selected>Select Breakfast</option>
+            <% breakfast.forEach(b=>{%>
+            <option value="<%=b.title%>"><%=b.title%></option>
+            <%})%>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="category">Lunch</label>
+          <select class="form-select form-control" name="lunchChoice">
+            <option selected>Select Lunch</option>
+            <% lunch.forEach(l=>{%>
+            <option value="<%=l.title%>"><%=l.title%></option>
+            <%})%>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <label for="category">Dinner</label>
+          <select class="form-select form-control" name="dinnerChoice">
+            <option selected>Select Dinner</option>
+            <% dinner.forEach(d=>{%>
+            <option value="<%=d.title%>"><%=d.title%></option>
+            <%})%>
+          </select>
+        </div>
+
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Submit Planner</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<%- include("../partials/footer")%>

@@ -1,6 +1,7 @@
 //models
 const Recipe = require("../models/recipe");
 const Shoppinglist = require("../models/shoppinglist");
+const Planner = require("../models/planner");
 const cloudinary = require("../utilities/cloudiary");
 
 //Homepage
@@ -115,6 +116,10 @@ async function search(req, res) {
     console.log(err);
   }
 }
+
+// async function addToPlanner(req, res) {
+//   const planners = await Planner.find({}).populate
+// }
 
 module.exports = {
   homePage,
