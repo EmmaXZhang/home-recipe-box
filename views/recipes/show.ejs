@@ -2,6 +2,7 @@
 
 <div class="row g-10">
   <div class="col-12 col-md-12">
+    <!-- recipe Top -->
     <div class="recipeShowTop row">
       <div class="col-md">
         <img
@@ -15,9 +16,11 @@
       </div>
 
       <div class="col-md">
-        <h1 class="display-5 fw-bold mb-3 text-center"><%- recipe.title %></h1>
+        <h1 class="showpageHeading display-5 fw-bold text-center">
+          <%- recipe.title %>
+        </h1>
         <!-- other info -->
-        <ul class="lead">
+        <ul class="lead text-center">
           <li>Preparation Time: <%=recipe.preparationTime%> min</li>
           <li>Cooking Time: <%=recipe.cookingTime%> min</li>
           <li>Category: <%=recipe.category%></li>
@@ -27,7 +30,6 @@
       </div>
     </div>
 
-    <!-- testing -->
     <div class="row">
       <!-- Instructions -->
       <div class="col-sm-6">
@@ -113,15 +115,19 @@
               class="list-group-item list-group-item d-flex justify-content-between align-items-start"
             >
               <div class="ms-2 me-auto">
-                <div class="review-user">
+                <div class="review-user d-flex w-100 justify-content-start">
                   <img
                     alt="avatar"
                     src="<%= r.userAvatar %>"
                     referrerpolicy="no-referrer"
                   />
-                  <div class="fw-bold"><%=r.userName%></div>
+                  <div class="fw-bold text-align-start"><%=r.userName%></div>
                 </div>
-                <%=r.content%>
+                <p class="mb-1"><%=r.content%></p>
+                <small
+                  class="position-absolute bottom-0 end-0 text-body-secondary"
+                  ><%=r.updatedAt.toLocaleDateString('en-GB')%></small
+                >
               </div>
               <span class="badge text-bg-warning rounded-pill"
                 ><%=r.rating%> stars</span
@@ -131,7 +137,7 @@
             <% }); %> <% } else { %>
             <h5>No Reviews Yet</h5>
             <% } %>
-            <p class="badge text-bg-secondary">
+            <p class="badge text-bg-warning">
               Average <%= recipe.averageRating() %>
             </p>
           </ol>
