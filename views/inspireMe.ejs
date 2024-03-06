@@ -1,0 +1,47 @@
+<%- include("./partials/header")%>
+<div class="meal-search">
+  <h2 class="title">Find Meals by Search</h2>
+  <!-- search area -->
+  <div class="row">
+    <div class="col">
+     <form action="/inspireMe/search" method="POST">
+     
+        <input
+          type="text"
+          name="recipeName"
+          class="form-control"
+          placeholder="Enter Recipe Name"
+          aria-label="First name"
+        />
+      </div>
+      <div class="col">
+        <button type="submit" id="btn" class="btn btn-warning">Search</button>
+    </div>
+  </form>
+  </div>
+
+  <div class="container d-flex justify-content-center my-5">
+    <!-- display area -->
+    <div class="row row-cols-1 row-cols-md-4 g-2">
+      <% if (recipes && recipes.length > 0) { %> <% recipes.forEach(recipe => {
+      %>
+      <div class="card" style="width: 18rem">
+        <img
+          src="<%=recipe.strMealThumb%>"
+          class="card-img-top"
+          alt="foodImg"
+        />
+        <div class="card-body">
+          <h5 class="card-title"><%= recipe.strMeal %></h5>
+
+          <a href="#" class="btn btn-primary">View Instructions</a>
+        </div>
+      </div>
+      <% }); %> <% } else { %>
+      <p>No recipes found.</p>
+      <% } %>
+    </div>
+  </div>
+
+  <%- include("./partials/footer")%>
+</div>
