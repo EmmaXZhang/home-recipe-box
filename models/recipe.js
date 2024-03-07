@@ -39,13 +39,16 @@ const recipeSchema = new Schema(
     },
     image: {
       type: String,
+      required: true,
     },
     preparationTime: {
-      type: String,
+      type: Number,
+      min: 0,
       required: true,
     },
     cookingTime: {
-      type: String,
+      type: Number,
+      min: 0,
       required: true,
     },
     category: {
@@ -56,7 +59,7 @@ const recipeSchema = new Schema(
     serving: { type: Number, required: true },
     difficulty: {
       type: String,
-      enum: ["Easy", "Medium", "Difficulty"],
+      enum: ["Easy", "Medium", "Difficult"],
       required: true,
     },
     ingredients: { type: Array },

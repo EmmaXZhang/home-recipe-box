@@ -27,14 +27,25 @@ async function create(req, res) {
   try {
     const result = await cloudinary.uploader.upload(req.file.path);
 
+    if (
+      req.body.preparationTime <= 0 ||
+      req.body.cookingTime <= 0 ||
+      req.body.serving <= 0 ||
+      isNaN(req.body.preparationTime) ||
+      isNaN(req.body.cookingTime) ||
+      isNaN(req.body.serving)
+    ) {
+      throw new Error(
+        "Preparation time, cooking time and serving number must be positive numbers."
+      );
+    }
+
     const recipe = new Recipe({
       ...req.body,
       image: result.secure_url,
       cloudinary_id: result.public_id,
     });
     await recipe.save();
-
-    // const recipe = await Recipe.create(req.body);
 
     res.redirect(`/recipes/${recipe._id}`);
   } catch (err) {
@@ -83,6 +94,7 @@ async function update(req, res) {
     if (!updatedRecipe) {
       return res.redirect("/recipes");
     }
+
     res.redirect(`/recipes/${updatedRecipe._id}`);
   } catch (err) {
     console.error("Error updating recipe:", err);
@@ -96,10 +108,8 @@ async function deleteRecipe(req, res) {
     await Recipe.findByIdAndDelete(req.params.id);
     res.redirect(`/recipes`);
 
-    // Respond with a success message
     res.status(200).send("Shopping list deleted successfully");
   } catch (error) {
-    // Handle errors
     console.log(error);
   }
 }
@@ -116,10 +126,6 @@ async function search(req, res) {
     console.log(err);
   }
 }
-
-// async function addToPlanner(req, res) {
-//   const planners = await Planner.find({}).populate
-// }
 
 module.exports = {
   homePage,

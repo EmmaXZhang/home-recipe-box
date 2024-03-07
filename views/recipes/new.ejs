@@ -41,7 +41,7 @@
 
         <div class="col-12">
           <label for="preparationTime" class="form-label"
-            >Preparation Time</label
+            >Preparation Time (mins)</label
           >
           <input
             type="number"
@@ -52,7 +52,9 @@
         </div>
 
         <div class="col-12">
-          <label for="cookingTime" class="form-label">Cooking Time</label>
+          <label for="cookingTime" class="form-label"
+            >Cooking Time (mins)</label
+          >
           <input
             type="number"
             name="cookingTime"
@@ -129,4 +131,5 @@
   </div>
 </div>
 <p><%=errMsg%></p>
+
 <%- include("../partials/footer")%>
