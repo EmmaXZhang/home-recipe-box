@@ -15,6 +15,7 @@ const plannerSchema = new Schema(
         // required: true,
       },
     ],
+
     lunch: [
       {
         type: Schema.Types.ObjectId,
@@ -22,6 +23,7 @@ const plannerSchema = new Schema(
         // required: true,
       },
     ],
+
     dinner: [
       {
         type: Schema.Types.ObjectId,

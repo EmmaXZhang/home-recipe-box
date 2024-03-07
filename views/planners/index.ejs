@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<div class="row row-cols-1 row-cols-md-3 g-2">
+  <%planners.forEach(p=>{%>
+  <div class="col">
+    <div class="card w-100">
+      <div class="card-header"><%=p.date.toLocaleDateString('en-GB')%></div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Breakfast: <%=p.breakfast[0].title%></li>
+        <li class="list-group-item">Lunch: <%=p.lunch[0].title%></li>
+        <li class="list-group-item">Dinner: <%=p.dinner[0].title%></li>
+      </ul>
+    </div>
+  </div>
+
+  <%})%>
+</div>
+
+<%- include("../partials/footer")%>

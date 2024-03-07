@@ -1,8 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const plannersController = require("../controllers/planners.js");
+const plannersController = require("../controllers/planners");
 const upload = require("../utilities/multer");
 const ensureLoggedIn = require("../config/ensureLoggedIn");
+
+// GET /planners/
+router.get("/", plannersController.index);
 
 // GET /planners/new
 router.get("/new", plannersController.new);

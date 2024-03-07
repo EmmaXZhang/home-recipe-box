@@ -11,7 +11,7 @@
 
 <div class="row justify-content-center">
   <div class="col-8">
-    <form action="/planners" enctype="multipart/form-data" method="POST">
+    <form action="/planners" method="POST">
       <div class="row g-3">
         <div class="col-12">
           <label for="title" class="form-label">Date</label>
@@ -28,7 +28,7 @@
           <select class="form-select form-control" name="breakfastChoice">
             <option selected>Select Breakfast</option>
             <% breakfast.forEach(b=>{%>
-            <option value="<%=b.title%>"><%=b.title%></option>
+            <option value="<%=b._id%>"><%=b.title%></option>
             <%})%>
           </select>
         </div>
@@ -38,7 +38,7 @@
           <select class="form-select form-control" name="lunchChoice">
             <option selected>Select Lunch</option>
             <% lunch.forEach(l=>{%>
-            <option value="<%=l.title%>"><%=l.title%></option>
+            <option value="<%=l._id%>"><%=l.title%></option>
             <%})%>
           </select>
         </div>
@@ -48,7 +48,7 @@
           <select class="form-select form-control" name="dinnerChoice">
             <option selected>Select Dinner</option>
             <% dinner.forEach(d=>{%>
-            <option value="<%=d.title%>"><%=d.title%></option>
+            <option value="<%=d._id%>"><%=d.title%></option>
             <%})%>
           </select>
         </div>
