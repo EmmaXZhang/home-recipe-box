@@ -22,5 +22,4 @@ const shoppingListSchema = new Schema({
   },
 });
 
-//Compiling a schema into a model  and export the model
 module.exports = mongoose.model("Shoppinglist", shoppingListSchema);
