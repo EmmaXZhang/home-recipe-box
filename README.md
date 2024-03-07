@@ -59,6 +59,12 @@ This project is a home recipes manager website hosted on GitHub Pages. It serves
    npm start
    ```
 
+## Next steps
+
+- [ ] Add edit/delete feature to daily planner page
+- [ ] Allow users to post multiple breakfast,lunch,dinner recipes to planner
+- [ ] Adjust Cards CSS
+
 ## Contributing
 
 Contributions are welcome! Please follow the Contribution Guidelines.
