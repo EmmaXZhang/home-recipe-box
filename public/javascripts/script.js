@@ -1,6 +1,5 @@
 let addBtn = document.getElementById("addIngredient");
 let ingredientList = document.querySelector(".ingredientList");
-// let ingredientDiv = document.querySelectorAll(".ingredientDiv")[0];
 
 if (addBtn) {
   addBtn.addEventListener("click", function () {
