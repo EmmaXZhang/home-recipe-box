@@ -16,7 +16,6 @@ This project is a home recipes manager website hosted on GitHub Pages. It serves
   - [Installation](#installation)
   - [Contributing](#contributing)
   - [License](#license)
-  - [Contact](#contact)
 
 ## Usage
 
