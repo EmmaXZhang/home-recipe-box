@@ -82,3 +82,7 @@ a {
 .stared {
   color: orange;
 }
+
+.recipeCards:hover {
+  transform: scale(1.1);
+}
