@@ -1,6 +1,6 @@
 <%- include("../partials/header")%>
 
-<div class="px-4 py-5 my-5 text-center">
+<div class="px-4 py-2 my-5 text-center">
   <h1 class="display-5 fw-bold">Daily Recipe Plan</h1>
   <div class="col-lg-6 mx-auto">
     <p class="lead">
@@ -52,9 +52,12 @@
             <%})%>
           </select>
         </div>
-
-        <div class="col-12">
-          <button type="submit" class="btn btn-primary">Submit Planner</button>
+        <span></span>
+        <div class="col-12 text-center">
+          <button type="submit" class="btn btn-dark">Submit Planner</button>
+          <a href="/planners" class="btn btn-outline-dark px-4 me-md-2"
+            >View Lists</a
+          >
         </div>
       </div>
     </form>
