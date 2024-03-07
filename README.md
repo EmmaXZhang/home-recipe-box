@@ -50,7 +50,7 @@ This project is a home recipes manager website hosted on GitHub Pages. It serves
 
 2. Install dependencies:
    ```bash
-   cd recipe-app
+   cd home-recipes-box
    npm install
    ```
 3. Set up your environment variables as needed.
