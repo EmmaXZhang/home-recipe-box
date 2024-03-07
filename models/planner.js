@@ -12,7 +12,7 @@ const plannerSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "Recipe",
-        // required: true,
+        required: true,
       },
     ],
 
@@ -20,7 +20,7 @@ const plannerSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "Recipe",
-        // required: true,
+        required: true,
       },
     ],
 
@@ -28,7 +28,7 @@ const plannerSchema = new Schema(
       {
         type: Schema.Types.ObjectId,
         ref: "Recipe",
-        // required: true,
+        required: true,
       },
     ],
   },
@@ -37,5 +37,4 @@ const plannerSchema = new Schema(
   }
 );
 
-//Compiling a schema into a model  and export the model
 module.exports = mongoose.model("Planner", plannerSchema);

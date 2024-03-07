@@ -118,11 +118,10 @@ async function deleteRecipe(req, res) {
 async function search(req, res) {
   try {
     let { searchTerm } = req.body;
-    // let recipes = await Recipe.find({
-    //   $text: { $search: searchTerm, $diacriticSensitive: false },
-    // });
+
     const recipes = await Recipe.find({
-      title: { $regex: new RegExp(searchTerm, "i") }, // Perform a case-insensitive partial match search on the title
+      // "i" - case-insensitive matching,partial match search on the title
+      title: { $regex: new RegExp(searchTerm, "i") },
     });
     res.render("recipes/search", { recipes });
   } catch (err) {
