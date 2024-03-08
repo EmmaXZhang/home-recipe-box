@@ -86,3 +86,7 @@ a {
 .recipeCards:hover {
   transform: scale(1.1);
 }
+
+.no-dot {
+  list-style-type: none;
+}
