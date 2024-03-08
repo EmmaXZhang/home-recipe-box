@@ -2,7 +2,7 @@
 
 ## Description
 
-This project is a home recipes manager website hosted on GitHub Pages. It serves as a portfolio or showcase of my projects, skills, and experiences. The website is built using HTML, CSS,Boostrap, Node, Express, EJS and some JavaScript to enhance interactivity.
+This project is a home recipes manager website hosted on GitHub Pages. It serves as a portfolio or showcase of my projects, skills, and experiences. The website is built using HTML, CSS, Boostrap, Node, Express, MongoDB, EJS and some JavaScript to enhance interactivity.
 
 ![Screenshot](homepage.png){:width="400px"}
 
