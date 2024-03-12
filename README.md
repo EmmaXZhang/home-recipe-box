@@ -63,7 +63,8 @@ This project is a home recipes manager website hosted on GitHub Pages. It serves
 
 - [ ] Add edit/delete feature to daily planner page
 - [ ] Allow users to post multiple breakfast,lunch,dinner recipes to planner
-- [ ] Adjust Cards CSS
+- [ ] Adjust Cards height to be consistent
+- [ ] User ownership (edit,delete,shoppinglist,daily planner)
 
 ## Contributing
 
