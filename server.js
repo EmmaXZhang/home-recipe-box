@@ -79,4 +79,17 @@ app.use(function (err, req, res, next) {
   res.render("error");
 });
 
+if (process.env.NODE_ENV === "production") {
+  const __dirname = path.resolve();
+  app.set(
+    "views",
+    path.join(__dirname, "../views"),
+    app.set("views", path.join(__dirname, "views"))
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running....");
+  });
+}
+
 module.exports = app;

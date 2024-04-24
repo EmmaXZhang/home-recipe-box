@@ -1,5 +1,7 @@
 # Home Recipes Box
 
+To view the website, click this link:<a href="https://home-recipe-box.onrender.com">Home Recipe Box</a>
+
 ## Description
 
 This project is a home recipes manager website hosted on GitHub Pages. It serves as a portfolio or showcase of my projects, skills, and experiences. The website is built using HTML, CSS, Boostrap, Node, Express, MongoDB, EJS and some JavaScript to enhance interactivity.
